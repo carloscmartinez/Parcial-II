@@ -30,7 +30,7 @@ export class PersonaService {
     return this.http.post<Persona>(this.baseUrl + 'api/Persona', persona)
         .pipe(
             tap(_ => this.handleErrorService.log('datos enviados')),
-            catchError(this.handleErrorService.handleError<Persona>('Registrar Cliente', null))
+            catchError(this.handleErrorService.handleError<Persona>('Registrar Persona', null))
         );
 }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 //import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+//import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Persona } from '../models/persona';
 import { PersonaService } from 'src/app/services/persona.service';
 
@@ -11,17 +11,19 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./persona-registro.component.css']
 })
 export class PersonaRegistroComponent implements OnInit {
-  formGroup: FormGroup;
+  // formGroup: FormGroup;
   persona: Persona;
-  submitted= false;
+  // submitted= false;
   constructor(
-    private personaService: PersonaService,
-    private formBuilder: FormBuilder) { }
+    private personaService: PersonaService
+    ) { }
 
   ngOnInit() {
-    this.buildForm();
+    // this.buildForm();
+    this.persona= new  Persona();
+
   }
-  private buildForm() {
+  /* private buildForm() {
         this.persona = new Persona();
         this.persona.personaId= '';
         this.persona.nombre = '';
@@ -56,7 +58,7 @@ export class PersonaRegistroComponent implements OnInit {
        this.formGroup.reset();
     }
     add() {
-      /* this.persona= this.formGroup.value;
+       this.persona= this.formGroup.value;
       this.personaService.post(this.persona).subscribe(p => {
         if (p != null) {
           // const messageBox = this.modalService.open(AlertModalComponent)
@@ -64,11 +66,19 @@ export class PersonaRegistroComponent implements OnInit {
           // messageBox.componentInstance.message = 'Cliente Registrado!!! :-)';
   
           alert('Persona Registrada!');
-          //this.persona=p;
+          this.persona=p;
           //
-        } */
-      // });
+        } 
+       });
       
+    } */
+    add() {
+      this.personaService.post(this.persona).subscribe(p => {
+        if (p != null) {
+          alert('Persona creada!');
+          this.persona = p;
+        }
+      });
     }
 
 }

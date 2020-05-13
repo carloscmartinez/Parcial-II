@@ -16,6 +16,7 @@ import { ApoyoRegistroComponent } from './apoyo/apoyo-registro/apoyo-registro.co
 import { ApoyoConsultaComponent } from './apoyo/apoyo-consulta/apoyo-consulta.component';
 import { PersonaService } from './services/persona.service';
 import { ApoyoService } from './services/apoyo.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { ApoyoService } from './services/apoyo.service';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
+    //NgModule
   ],
   providers: [PersonaService,ApoyoService],
   bootstrap: [AppComponent]

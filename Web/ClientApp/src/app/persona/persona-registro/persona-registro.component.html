@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
     <div class="container">
       <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -16,6 +16,7 @@
                   </div>                  
                   <label for="personaId">Identificacion</label>
                 </div><br>
+                
   
                 <div class="form-label-group">
                     <input type="text" id="nombre" name="nombre" formControlName="nombre" class="form-control" placeholder="Nombre" required [ngClass]="{ 'is-invalid':  control.nombre.errors}">
@@ -72,3 +73,50 @@
       </div>
     </div>
   </body>
+ -->
+ <body>
+   
+ 
+ <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h2>Registro de Personas</h2>
+              <form >
+                                 
+                  <div class="form-group">
+                      <label>Identificacion</label>
+                      <input type="text"  name="personaId"  [(ngModel)]="persona.personaId" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="text"  name="nombre"  [(ngModel)]="persona.nombre" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text"  name="apellidos"  [(ngModel)]="persona.apellidos" class="form-control" />
+                    </div>
+                  <div class="form-group">
+                      <label>sexo</label>
+                      <input type="text"  name="sexo"  [(ngModel)]="persona.sexo" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                      <label>Edad</label>
+                      <input type="number"  name="edad"  [(ngModel)]="persona.edad" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                      <label>Departamento</label>
+                      <input type="text"  name="departamento"  [(ngModel)]="persona.departamento" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text"  name="ciudad"  [(ngModel)]="persona.ciudad" class="form-control" />
+                    </div>
+                  <div class="text-center">
+                      <button class="btn btn-primary mr-1"(click)="add()">Register</button>
+                      <button class="btn btn-secondary" type="reset">Cancel</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</body> 
