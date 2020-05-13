@@ -1,0 +1,74 @@
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">Registo de Personas</h5>
+              <form class="form-signin" [formGroup]="formGroup">
+                
+                <div class="form-label-group">
+                  <input type="text" id="personaId" name="personaId" formControlName="personaId" class="form-control" placeholder="personaId" required
+                  [ngClass]="{ 'is-invalid':  control.personaId.errors}"
+                  />
+                  <div *ngIf="control.personaId.errors" class="invalid-feedback">           
+                    <div *ngIf="control.personaId.errors.required">Se require la Identificacion</div>
+                  </div>                  
+                  <label for="personaId">Identificacion</label>
+                </div><br>
+  
+                <div class="form-label-group">
+                    <input type="text" id="nombre" name="nombre" formControlName="nombre" class="form-control" placeholder="Nombre" required [ngClass]="{ 'is-invalid':  control.nombre.errors}">
+                    <div *ngIf="control.nombre.errors" class="invalid-feedback">
+                      <div *ngIf="control.nombre.errors.required">Se require el nombre</div>
+                    </div>
+                    <label for="nombre">Nombre</label>
+                </div><br>
+  
+                <div class="form-label-group">
+                  <input type="text" id="apellidos" name="apellidos" formControlName="apellidos" class="form-control" placeholder="apellidos" required [ngClass]="{ 'is-invalid':  control.apellidos.errors}">
+                  <div *ngIf="control.apellidos.errors" class="invalid-feedback">
+                    <div *ngIf="control.apellidos.errors.required">Se require el apellido</div>
+                  </div>
+                  <label for="apellidos">Apellidos</label>
+              </div><br>
+  
+                <div class="form-label-group">
+                    <input type="text" id="sexo" name="sexo" formControlName="sexo" class="form-control" placeholder="sexo" required [ngClass]="{ 'is-invalid':  control.sexo.errors}">
+                    <div *ngIf="control.sexo.errors" class="invalid-feedback">
+                      <div *ngIf="control.sexo.errors.required">Se require el sexo</div>
+                    </div>
+                    <label for="sexo ">Sexo </label>
+                </div><br>
+                <div class="form-label-group">
+                    <input type="number" id="edad" name="edad" formControlName="edad" class="form-control" placeholder="edad" required [ngClass]="{ 'is-invalid':  control.edad.errors}">
+                    <div *ngIf="control.edad.errors" class="invalid-feedback">
+                      <div *ngIf="control.edad.errors.required">Se require el edad</div>
+                    </div>
+                    <label for="edad">edad</label>
+                </div><br>
+                <div class="form-label-group">
+                    <input type="text" id="departamento" name="departamento" formControlName="departamento" class="form-control" placeholder="departamento" required [ngClass]="{ 'is-invalid':  control.departamento.errors}">
+                    <div *ngIf="control.departamento.errors" class="invalid-feedback">
+                      <div *ngIf="control.departamento.errors.required">Se require el departamento</div>
+                    </div>
+                    <label for="departamento">departamento</label>
+                </div><br>
+                <div class="form-label-group">
+                    <input type="text" id="ciudad" name="ciudad" formControlName="ciudad" class="form-control" placeholder="ciudad" required [ngClass]="{ 'is-invalid':  control.ciudad.errors}">
+                    <div *ngIf="control.ciudad.errors" class="invalid-feedback">
+                      <div *ngIf="control.ciudad.errors.required">Se require el ciudad</div>
+                    </div>
+                    <label for="ciudad">ciudad</label>
+                </div><br>
+  
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="onSubmit()"  [disabled]="formGroup.invalid">Registrar</button>
+                <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="reset">Cancelar</button>
+              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
