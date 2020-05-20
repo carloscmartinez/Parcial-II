@@ -11,7 +11,7 @@ namespace Datos.Migrations
                 name: "Personas",
                 columns: table => new
                 {
-                    PersonaId = table.Column<string>(nullable: false),
+                    PersonaId = table.Column<long>(nullable: false),
                     Nombre = table.Column<string>(nullable: true),
                     Apellidos = table.Column<string>(nullable: true),
                     Sexo = table.Column<string>(nullable: true),
@@ -28,11 +28,12 @@ namespace Datos.Migrations
                 name: "Apoyos",
                 columns: table => new
                 {
-                    ApoyoId = table.Column<string>(nullable: false),
-                    Valor = table.Column<string>(nullable: true),
+                    ApoyoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Valor = table.Column<float>(nullable: false),
                     Modalidad = table.Column<string>(nullable: true),
                     Fecha = table.Column<DateTime>(nullable: false),
-                    PersonaId = table.Column<string>(nullable: true)
+                    PersonaId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,7 +43,7 @@ namespace Datos.Migrations
                         column: x => x.PersonaId,
                         principalTable: "Personas",
                         principalColumn: "PersonaId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

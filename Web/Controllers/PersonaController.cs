@@ -20,7 +20,7 @@ namespace Web.Controllers
         // public IConfiguration Configuration { get; }
         public PersonaController(PersonaContext context)
         {
-            _personaService = new PersonaService(context)
+            _personaService = new PersonaService(context);
         }
         // GET: api/Persona
         [HttpGet]
@@ -40,14 +40,14 @@ namespace Web.Controllers
             {  
                 //------------------------------------------------------------------------------------
                 //Retornar los mensajes de validación adicionales en el mismo fomato que el ModalState
-               /*  ModelState.AddModelError("Guardar Cliente", response.Mensaje);
+                ModelState.AddModelError("Guardar Cliente", response.Mensaje);
                 var problemDetails = new ValidationProblemDetails(ModelState)
                 {
                     Status = StatusCodes.Status400BadRequest,
                 };
-                return BadRequest(problemDetails); */
+                return BadRequest(problemDetails);
                 //------------------------------------------------------------------------------------
-                return BadRequest(response.Mensaje);
+                //return BadRequest(response.Mensaje);
             }
             return Ok(response.Persona);
         }

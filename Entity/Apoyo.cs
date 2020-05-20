@@ -6,12 +6,12 @@ namespace Entity
     public class Apoyo
     {
         [Key]
-        public string ApoyoId { get; set; }
-        public string Valor { get; set; }
+        public int ApoyoId { get; set; }
+        public float Valor { get; set; }
         public string Modalidad { get; set; }
         public DateTime Fecha { get; set; }
 
-        public string PersonaId { get; set; }
+        public long PersonaId { get; set; }
         public Persona Persona { get; set; }
         
     }

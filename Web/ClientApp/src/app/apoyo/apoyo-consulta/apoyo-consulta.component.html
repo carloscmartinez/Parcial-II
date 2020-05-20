@@ -1,1 +1,33 @@
-<p>apoyo-consulta works!</p>
+<body>
+  
+    <div class="row">
+          <div class="col-6">
+          <h1>Apoyo</h1>
+            <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Buscar">
+          </div>
+        </div>
+        <hr>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id</th>          
+          <th scope="col">Modalidad</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Fecha</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let apoyo of apoyos; index as i">
+          <td scope="row">{{ i + 1 }}</td>
+          <td class="text-right">{{ apoyo.apoyoId | number}}</td>          
+          <td class="text-left text-capitalize">{{ apoyo.modalidad }}</td>
+          <td class="text-right">{{ apoyo.valor | number}}</td>
+          <td class="text-right">{{ apoyo.fecha }}</td>
+          
+          
+        </tr>
+        </tbody>
+      </table>
+         
+       </body>

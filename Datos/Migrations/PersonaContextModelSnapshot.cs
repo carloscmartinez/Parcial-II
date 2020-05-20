@@ -21,8 +21,10 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entity.Apoyo", b =>
                 {
-                    b.Property<string>("ApoyoId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ApoyoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
@@ -30,11 +32,11 @@ namespace Datos.Migrations
                     b.Property<string>("Modalidad")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PersonaId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<long>("PersonaId")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Valor")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("Valor")
+                        .HasColumnType("real");
 
                     b.HasKey("ApoyoId");
 
@@ -45,8 +47,8 @@ namespace Datos.Migrations
 
             modelBuilder.Entity("Entity.Persona", b =>
                 {
-                    b.Property<string>("PersonaId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<long>("PersonaId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Apellidos")
                         .HasColumnType("nvarchar(max)");
@@ -74,8 +76,10 @@ namespace Datos.Migrations
             modelBuilder.Entity("Entity.Apoyo", b =>
                 {
                     b.HasOne("Entity.Persona", "Persona")
-                        .WithMany("Apoyo")
-                        .HasForeignKey("PersonaId");
+                        .WithMany("Apoyos")
+                        .HasForeignKey("PersonaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

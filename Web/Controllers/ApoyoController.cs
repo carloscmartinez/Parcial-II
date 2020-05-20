@@ -17,16 +17,16 @@ namespace Web.Controllers
     public class ApoyoController: ControllerBase
     {
         private readonly ApoyoService _apoyoService;
-        public PersonaController(PersonaContext context)
+        public ApoyoController(PersonaContext context)
         {
-            _personaService = new ApoyoService(context)
+            _apoyoService = new ApoyoService(context);
         }
         // GET: api/Apoyo
         [HttpGet]
         public IEnumerable<ApoyoViewModel> Gets()
         {
-            var personas = _personaService.ConsultarTodos().Select(p=> new ApoyoViewModel(p));
-            return personas;
+            var apoyos = _apoyoService.ConsultarTodos().Select(p=> new ApoyoViewModel(p));
+            return apoyos;
         }
 
         // POST: api/Apoyo
@@ -39,14 +39,14 @@ namespace Web.Controllers
             {  
                 //------------------------------------------------------------------------------------
                 //Retornar los mensajes de validación adicionales en el mismo fomato que el ModalState
-               /*  ModelState.AddModelError("Guardar Cliente", response.Mensaje);
+                ModelState.AddModelError("Guardar Persona", response.Mensaje);
                 var problemDetails = new ValidationProblemDetails(ModelState)
                 {
                     Status = StatusCodes.Status400BadRequest,
                 };
-                return BadRequest(problemDetails); */
+                return BadRequest(problemDetails);
                 //------------------------------------------------------------------------------------
-                return BadRequest(response.Mensaje);
+                //return BadRequest(response.Mensaje);
             }
             return Ok(response.Apoyo);
         }
@@ -55,10 +55,11 @@ namespace Web.Controllers
         {
             var apoyo = new Apoyo
             {
-                apoyoId = apoyoInput.ApoyoId,
-                valor = apoyoInput.Valor,
-                modalidad = apoyoInput.Modalidad,
-                fecha = apoyoInput.Fecha,
+                ApoyoId = apoyoInput.ApoyoId,
+                PersonaId = apoyoInput.PersonaId,
+                Valor = apoyoInput.Valor,
+                Modalidad = apoyoInput.Modalidad,
+                Fecha = apoyoInput.Fecha,
                 
             };
             return apoyo;

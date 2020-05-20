@@ -3,6 +3,7 @@ using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 namespace Logica
 {
     public class PersonaService
@@ -34,7 +35,7 @@ namespace Logica
 
       public List<Persona> ConsultarTodos()
       {
-          List<Persona> personas = _context.Personas.ToList();
+          List<Persona> personas = _context.Personas.Include(c => c.Apoyos).ToList();
           return personas;
       } 
 

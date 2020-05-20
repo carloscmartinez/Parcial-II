@@ -1,3 +1,4 @@
+using System.Reflection;
 using Entity;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,21 @@ namespace Web.Models
 {
     public class PersonaInputModel
     {
-       // [Required]
-        public string PersonaId { get; set; }
-        ///[Required(ErrorMessage ="El Nombre es requerido")]
+       [Required]
+       //[RegularExpression(@"^[0-9]{7,10}$", ErrorMessage = "La identificacion  es solo numeros de 7 a 10 digitos")]
+        public long PersonaId { get; set; }
+      //  [Required(ErrorMessage ="El Nombre es requerido")]
         public string Nombre { get; set; }
         //[Required(ErrorMessage ="El Apellido es requerido")]
         public string Apellidos { get; set; }
-        // [Required(ErrorMessage ="El Telefono es requerido")]
-        // [Required]
-        // [SexValidation(ErrorMessage = "Especifique un sexo [M ó F]")]
-        //[Required]             
-        //[RegularExpression(@"^[0-9]{7,10}$", ErrorMessage = "El telefono es solo numeros de 7 a 10 digitos")]
+      //  [Required]
+      //  [SexValidation(ErrorMessage = "Especifique un sexo [M ó F]")]
         public string Sexo { get; set; }
+       // [Required(ErrorMessage ="La edad es requerida")]
         public int Edad { get; set; }
+       // [Required(ErrorMessage ="El Departamento es requerido")]
         public string Departamento { get; set; }
+       // [Required(ErrorMessage ="La Ciudad es requerida")]
         public string Ciudad { get; set; }
        
     }
@@ -48,17 +50,13 @@ namespace Web.Models
 }
 
 
-
-
-    
-
-    // public class SexValidation : ValidationAttribute
-    // {
-    //     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-    //     {
-    //         if (Convert.ToString(value) == "M" || Convert.ToString(value) == "F")
-    //             return ValidationResult.Success;
-    //         else
-    //             return new ValidationResult(ErrorMessage);
-    //     }
-    // }
+    public class SexValidation : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (Convert.ToString(value) == "M" || Convert.ToString(value) == "F")
+                return ValidationResult.Success;
+            else
+                return new ValidationResult(ErrorMessage);
+        }
+    }

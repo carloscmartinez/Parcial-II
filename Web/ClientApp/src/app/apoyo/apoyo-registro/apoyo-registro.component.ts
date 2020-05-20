@@ -27,14 +27,16 @@ export class ApoyoRegistroComponent implements OnInit {
   private buildForm() {
         this.apoyo= new Apoyo();
     let myDate = new Date();
-        this.apoyo.apoyoId= 0;
+        //this.apoyo.apoyoId= 0;
+        this.apoyo.personaId= 0;
         this.apoyo.valor= 0;
         this.apoyo.modalidad= '';
         this.apoyo.fecha= myDate;
        
         
         this.formGroup = this.formBuilder.group({
-          apoyoId: [this.apoyo.apoyoId, Validators.required],
+         // apoyoId: [],
+          personaId: [this.apoyo.apoyoId, Validators.required],
           valor: [this.apoyo.valor, Validators.required],
           modalidad: [this.apoyo.modalidad, Validators.required],
           fecha: [this.apoyo.fecha, Validators.required]

@@ -8,7 +8,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./persona-consulta.component.css']
 })
 export class PersonaConsultaComponent implements OnInit {
-  personas: Persona[]
+  personas: Persona[];
   constructor(private personaService: PersonaService) { }
 
   ngOnInit() {

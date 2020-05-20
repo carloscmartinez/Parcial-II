@@ -8,18 +8,18 @@
             <form class="form-signin" [formGroup]="formGroup">
               
               <div class="form-label-group">
-                <input type="text" id="apoyoId" name="apoyoId" formControlName="apoyoId" class="form-control" placeholder="apoyoId" required
-                [ngClass]="{ 'is-invalid':  control.apoyoId.errors}"
+                <input type="text" id="personaId" name="personaId" formControlName="personaId" class="form-control" placeholder="personaId" required
+                [ngClass]="{ 'is-invalid':  control.personaId.errors}"
                 />
-                <div *ngIf="control.apoyoId.errors" class="invalid-feedback">           
-                  <div *ngIf="control.apoyoId.errors.required">Se require la Identificacion</div>
+                <div *ngIf="control.personaId.errors" class="invalid-feedback">           
+                  <div *ngIf="control.personaId.errors.required">Se require la Identificacion</div>
                 </div>                  
-                <label for="apoyoId">Identificacion</label>
+                <label for="personaId">Identificacion</label>
               </div><br>
               
 
               <div class="form-label-group">
-                  <input type="text" id="valor" name="valor" formControlName="valor" class="form-control" placeholder="valor" required [ngClass]="{ 'is-invalid':  control.valor.errors}">
+                  <input type="number" id="valor" name="valor" formControlName="valor" class="form-control" placeholder="valor" required [ngClass]="{ 'is-invalid':  control.valor.errors}">
                   <div *ngIf="control.valor.errors" class="invalid-feedback">
                     <div *ngIf="control.valor.errors.required">Se require el Valor</div>
                   </div>
@@ -41,7 +41,7 @@
                   </div>
                   <label for="fecha">Fecha</label>
               </div><br>
-              <
+              
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="onSubmit()"  [disabled]="formGroup.invalid">Registrar</button>
               <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="reset">Cancelar</button>
@@ -56,7 +56,7 @@
 
 
 
-<body>
+<!-- <body>
    
  
     <div class="container">
@@ -94,4 +94,4 @@
              </div>
          </div>
      </div>
-   </body> 
+   </body>  -->

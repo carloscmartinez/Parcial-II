@@ -39,7 +39,7 @@ export class PersonaRegistroComponent implements OnInit {
           personaId: [this.persona.personaId, Validators.required],
           nombre: [this.persona.nombre, Validators.required],
           apellidos: [this.persona.apellidos, Validators.required],
-          sexo: [this.persona.sexo, [Validators.required, this.ValidaSexo]],
+          sexo: [this.persona.sexo, Validators.required],
           edad: [this.persona.edad, Validators.required],
           departamento: [this.persona.departamento, Validators.required],
           ciudad: [this.persona.ciudad, Validators.required]
@@ -82,13 +82,13 @@ export class PersonaRegistroComponent implements OnInit {
 //         }
 //       });
 //     }
- private ValidaSexo(control: AbstractControl) {
+ /* private ValidaSexo(control: AbstractControl) {
    const sexo = control.value;
    if (sexo.toLocaleUpperCase() !== 'M' && sexo.toLocaleUpperCase() !== 'F') {
     return { validSexo: true, messageSexo: 'Sexo No Valido'	};
    }
     return null;
-  }
+  } */
   
 
 

@@ -3,12 +3,14 @@ using System.Security;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Entity
 {
     public class Persona
     {
         [Key]
-        public string PersonaId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long PersonaId { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Sexo { get; set; }
@@ -16,6 +18,6 @@ namespace Entity
         public string Departamento { get; set; }
         public string Ciudad { get; set; }
         
-        public List<Apoyo> Apoyo { get; } = new List<Apoyo>();
+        public List<Apoyo> Apoyos { get; } = new List<Apoyo>();
     }
 }
