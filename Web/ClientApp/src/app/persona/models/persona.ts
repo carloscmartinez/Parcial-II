@@ -1,6 +1,6 @@
 export class Persona {
     
-            personaId: string;
+            personaId: number;
             nombre: string;
             apellidos: string;
             sexo: string;

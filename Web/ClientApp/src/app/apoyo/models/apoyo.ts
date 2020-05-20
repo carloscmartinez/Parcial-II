@@ -1,5 +1,5 @@
 export class Apoyo {
-    apoyoId:string;
+    apoyoId:number;
     valor: number;
     modalidad: string;
     fecha: Date;

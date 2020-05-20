@@ -8,7 +8,7 @@
               <form class="form-signin" [formGroup]="formGroup">
                 
                 <div class="form-label-group">
-                  <input type="text" id="personaId" name="personaId" formControlName="personaId" class="form-control" placeholder="personaId" required
+                  <input type="number" id="personaId" name="personaId" formControlName="personaId" class="form-control" placeholder="personaId" required
                   [ngClass]="{ 'is-invalid':  control.personaId.errors}"
                   />
                   <div *ngIf="control.personaId.errors" class="invalid-feedback">           

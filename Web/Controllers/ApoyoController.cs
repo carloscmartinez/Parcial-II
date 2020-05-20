@@ -14,28 +14,27 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonaController: ControllerBase
+    public class ApoyoController: ControllerBase
     {
-         private readonly PersonaService _personaService;
-        // public IConfiguration Configuration { get; }
+        private readonly ApoyoService _apoyoService;
         public PersonaController(PersonaContext context)
         {
-            _personaService = new PersonaService(context)
+            _personaService = new ApoyoService(context)
         }
-        // GET: api/Persona
+        // GET: api/Apoyo
         [HttpGet]
-        public IEnumerable<PersonaViewModel> Gets()
+        public IEnumerable<ApoyoViewModel> Gets()
         {
-            var personas = _personaService.ConsultarTodos().Select(p=> new PersonaViewModel(p));
+            var personas = _personaService.ConsultarTodos().Select(p=> new ApoyoViewModel(p));
             return personas;
         }
 
-        // POST: api/Persona
+        // POST: api/Apoyo
         [HttpPost]
-        public ActionResult<PersonaViewModel> Post(PersonaInputModel personaInput)
+        public ActionResult<ApoyoViewModel> Post(ApoyoInputModel apoyoInput)
         {
-            Persona persona = MapearPersona(personaInput);
-            var response = _personaService.Guardar(persona);
+            Apoyo apoyo = MapearApoyo(apoyoInput);
+            var response = _apoyoService.Guardar(apoyo);
             if (response.Error) 
             {  
                 //------------------------------------------------------------------------------------
@@ -49,26 +48,22 @@ namespace Web.Controllers
                 //------------------------------------------------------------------------------------
                 return BadRequest(response.Mensaje);
             }
-            return Ok(response.Persona);
+            return Ok(response.Apoyo);
         }
 
-        private Persona MapearPersona(PersonaInputModel personaInput)
+        private Apoyo MapearApoyo(ApoyoInputModel apoyoInput)
         {
-            var persona = new Persona
+            var apoyo = new Apoyo
             {
-                PersonaId = personaInput.PersonaId,
-                Nombre = personaInput.Nombre,
-                Apellidos = personaInput.Apellidos,
-                Sexo = personaInput.Sexo,
-                Edad = personaInput.Edad,
-                Departamento = personaInput.Departamento,
-                Ciudad = personaInput.Ciudad,
+                apoyoId = apoyoInput.ApoyoId,
+                valor = apoyoInput.Valor,
+                modalidad = apoyoInput.Modalidad,
+                fecha = apoyoInput.Fecha,
                 
             };
-            return persona;
+            return apoyo;
         
     }
-    
         
     }
 }

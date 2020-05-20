@@ -1,4 +1,62 @@
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Registro de Apoyos</h5>
+            <form class="form-signin" [formGroup]="formGroup">
+              
+              <div class="form-label-group">
+                <input type="text" id="apoyoId" name="apoyoId" formControlName="apoyoId" class="form-control" placeholder="apoyoId" required
+                [ngClass]="{ 'is-invalid':  control.apoyoId.errors}"
+                />
+                <div *ngIf="control.apoyoId.errors" class="invalid-feedback">           
+                  <div *ngIf="control.apoyoId.errors.required">Se require la Identificacion</div>
+                </div>                  
+                <label for="apoyoId">Identificacion</label>
+              </div><br>
+              
+
+              <div class="form-label-group">
+                  <input type="text" id="valor" name="valor" formControlName="valor" class="form-control" placeholder="valor" required [ngClass]="{ 'is-invalid':  control.valor.errors}">
+                  <div *ngIf="control.valor.errors" class="invalid-feedback">
+                    <div *ngIf="control.valor.errors.required">Se require el Valor</div>
+                  </div>
+                  <label for="valor">Valor</label>
+              </div><br>
+
+              <div class="form-label-group">
+                <input type="text" id="modalidad" name="modalidad" formControlName="modalidad" class="form-control" placeholder="modalidad" required [ngClass]="{ 'is-invalid':  control.modalidad.errors}">
+                <div *ngIf="control.modalidad.errors" class="invalid-feedback">
+                  <div *ngIf="control.modalidad.errors.required">Se require la Modalidad</div>
+                </div>
+                <label for="modalidad">Modalidad</label>
+            </div><br>
+
+              <div class="form-label-group">
+                  <input type="date" id="fecha" name="fecha" formControlName="fecha" class="form-control" placeholder="fecha" required [ngClass]="{ 'is-invalid':  control.fecha.errors}">
+                  <div *ngIf="control.fecha.errors" class="invalid-feedback">
+                    <div *ngIf="control.fecha.errors.required">Se require la Fecha</div>
+                  </div>
+                  <label for="fecha">Fecha</label>
+              </div><br>
+              <
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="onSubmit()"  [disabled]="formGroup.invalid">Registrar</button>
+              <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="reset">Cancelar</button>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+<body>
    
  
     <div class="container">

@@ -27,7 +27,7 @@ export class PersonaRegistroComponent implements OnInit {
   }
   private buildForm() {
         this.persona = new Persona();
-        this.persona.personaId= '';
+        this.persona.personaId= 0;
         this.persona.nombre = '';
         this.persona.apellidos= '';
         this.persona.sexo = '';
