@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { ApoyoConsultaComponent } from './apoyo/apoyo-consulta/apoyo-consulta.co
 import { PersonaService } from './services/persona.service';
 import { ApoyoService } from './services/apoyo.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PersonaConsultaComponent,
     PersonaRegistroComponent,
     ApoyoRegistroComponent,
-    ApoyoConsultaComponent
+    ApoyoConsultaComponent,
+    AlertModalComponent
   ],
   imports: [
+     ReactiveFormsModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -43,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
     //NgModule
   ],
+  entryComponents: [AlertModalComponent],
   providers: [PersonaService,ApoyoService],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,39 @@
-<p>apoyo-registro works!</p>
+<body>
+   
+ 
+    <div class="container">
+         <div class="row">
+             <div class="col-md-6 offset-md-3">
+                 <h2>Registro de Apoyos</h2>
+                 <form >
+                                    
+                     <div class="form-group">
+                         <label>Identificacion</label>
+                         <input type="text"  name="apoyoId"  [(ngModel)]="apoyo.apoyoId" class="form-control" />
+                     </div>
+                     <div class="form-group">
+                         <label>valor</label>
+                         <input type="text"  name="valor"  [(ngModel)]="apoyo.valor" class="form-control" />
+                     </div>
+                     <div class="form-group">
+                           <label>modalidad</label>
+                           <input type="text"  name="modalidad"  [(ngModel)]="apoyo.modalidad" class="form-control" />
+                       </div>
+                     <div class="form-group">
+                         <label>fecha</label>
+                         <input type="text"  name="fecha"  [(ngModel)]="apoyo.fecha" class="form-control" />
+                     </div>
+                     <div class="form-group">
+                         <label>Edad</label>
+                         <input type="number"  name="personaId"  [(ngModel)]="persona.edad" class="form-control" />
+                     </div>
+                     
+                     <div class="text-center">
+                         <button class="btn btn-primary mr-1"(click)="add()">Register</button>
+                         <button class="btn btn-secondary" type="reset">Cancel</button>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+   </body> 

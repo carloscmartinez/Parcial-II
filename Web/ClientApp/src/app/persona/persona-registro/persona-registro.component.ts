@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-//import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
-//import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Persona } from '../models/persona';
 import { PersonaService } from 'src/app/services/persona.service';
 
@@ -11,19 +11,21 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./persona-registro.component.css']
 })
 export class PersonaRegistroComponent implements OnInit {
-  // formGroup: FormGroup;
+  formGroup: FormGroup;
   persona: Persona;
-  // submitted= false;
+ submitted= false;
   constructor(
+    private formBuilder: FormBuilder,
+    private modalService: NgbModal,
     private personaService: PersonaService
     ) { }
 
   ngOnInit() {
-    // this.buildForm();
-    this.persona= new  Persona();
+     this.buildForm();
+    //this.persona= new  Persona();
 
   }
-  /* private buildForm() {
+  private buildForm() {
         this.persona = new Persona();
         this.persona.personaId= '';
         this.persona.nombre = '';
@@ -37,7 +39,7 @@ export class PersonaRegistroComponent implements OnInit {
           personaId: [this.persona.personaId, Validators.required],
           nombre: [this.persona.nombre, Validators.required],
           apellidos: [this.persona.apellidos, Validators.required],
-          sexo: [this.persona.sexo, Validators.required],
+          sexo: [this.persona.sexo, [Validators.required, this.ValidaSexo]],
           edad: [this.persona.edad, Validators.required],
           departamento: [this.persona.departamento, Validators.required],
           ciudad: [this.persona.ciudad, Validators.required]
@@ -61,24 +63,33 @@ export class PersonaRegistroComponent implements OnInit {
        this.persona= this.formGroup.value;
       this.personaService.post(this.persona).subscribe(p => {
         if (p != null) {
-          // const messageBox = this.modalService.open(AlertModalComponent)
-          // messageBox.componentInstance.title = "Resultado Operación";
-          // messageBox.componentInstance.message = 'Cliente Registrado!!! :-)';
+          const messageBox = this.modalService.open(AlertModalComponent)
+          messageBox.componentInstance.title = "Resultado Operación";
+          messageBox.componentInstance.message = 'Cliente Registrado!!! :-)';
   
-          alert('Persona Registrada!');
+          //alert('Persona Registrada!');
           this.persona=p;
           //
         } 
        });
       
-    } */
-    add() {
-      this.personaService.post(this.persona).subscribe(p => {
-        if (p != null) {
-          alert('Persona creada!');
-          this.persona = p;
-        }
-      });
     }
+//     add() {
+//       this.personaService.post(this.persona).subscribe(p => {
+//         if (p != null) {
+//           alert('Persona creada!');
+//           this.persona = p;
+//         }
+//       });
+//     }
+ private ValidaSexo(control: AbstractControl) {
+   const sexo = control.value;
+   if (sexo.toLocaleUpperCase() !== 'M' && sexo.toLocaleUpperCase() !== 'F') {
+    return { validSexo: true, messageSexo: 'Sexo No Valido'	};
+   }
+    return null;
+  }
+  
+
 
 }

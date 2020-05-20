@@ -23,14 +23,14 @@
         <tbody>
         <tr *ngFor="let persona of personas; index as i">
           <td scope="row">{{ i + 1 }}</td>
-          <td >{{ persona.personaId }}</td>
-          <td >{{ persona.nombre }}</td>
-          <td >{{ persona.apellidos }}</td>
-          <td >{{ persona.sexo }}</td>
-          <td >{{ persona.edad }}</td>
-          <td >{{ persona.departamento }}</td>
-          <td >{{ persona.ciudad }}</td>
-          <!-- <td><a routerLink="/taskedit/{{task.id}}">ver</a></td>    |filtroPersona:searchText-->
+          <td class="text-right">{{ persona.personaId | number}}</td>
+          <td class="text-left text-capitalize">{{ persona.nombre }}</td>
+          <td class="text-left text-capitalize">{{ persona.apellidos }}</td>
+          <td class="text-left text-capitalize">{{ persona.sexo }}</td>
+          <td class="text-right">{{ persona.edad }}</td>
+          <td class="text-left text-capitalize">{{ persona.departamento }}</td>
+          <td class="text-left text-capitalize">{{ persona.ciudad }}</td>
+          
         </tr>
         </tbody>
       </table>
